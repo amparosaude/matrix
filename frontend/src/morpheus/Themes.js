@@ -1,5 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import { pink, blue } from "@material-ui/core/colors";
+import { blue, green } from "@material-ui/core/colors";
 
 import storage from "./store/storage";
 
@@ -48,14 +48,14 @@ export default {
   [THEMES.light]: createMuiTheme({
     palette: {
       primary: blue,
-      secondary: pink,
+      secondary: green,
       background: { default: "#e1f5fe" }
     }
   }),
   [THEMES.dark]: createMuiTheme({
     palette: {
-      primary: blue,
-      secondary: pink,
+      primary: green,
+      secondary: blue,
       type: "dark"
     }
   })
