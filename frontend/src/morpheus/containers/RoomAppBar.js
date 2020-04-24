@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import AppBarTitle from "../../components/AppBarTitle";
 import MenuRoom from "../../components/MenuRoom";
 import ShareModal from "../../components/ShareModal";
+import LofiPopper from "../../components/LofiPopper";
 import { selectRooms, selectSystemSettings } from "../store/selectors";
 import { emitLeftMeeting } from "../socket";
 import { changeSystemSetting, toggleTheme } from "../store/actions";
@@ -19,6 +20,7 @@ const RoomAppBar = ({
   settings
 }) => {
   const [isShareModalOpen, setShareModalOpen] = useState(false);
+  const [isLofiOn, setLofiOn] = useState(false);
   const { roomId } = match.params;
   const findRoomResult = rooms.find(r => r.id === roomId);
   const currentRoomName = findRoomResult ? findRoomResult.name : "";
@@ -34,9 +36,18 @@ const RoomAppBar = ({
         onShare={() => {
           setShareModalOpen(true);
         }}
+        onOpenLofi={() => {
+          setLofiOn(!isLofiOn)
+        }}
         onChangeSettings={onChangeSettings}
         onChangeTheme={onChangeTheme}
         settings={settings}
+      />
+      <LofiPopper
+        open={isLofiOn}
+        onClose={() => {
+          setLofiOn(false);
+        }}
       />
       <ShareModal
         open={isShareModalOpen}
