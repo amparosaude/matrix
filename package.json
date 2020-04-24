@@ -28,5 +28,8 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "lerna": "^3.16.4"
+  },
+  "dependencies": {
+    "react-player": "^1.15.3"
   }
 }

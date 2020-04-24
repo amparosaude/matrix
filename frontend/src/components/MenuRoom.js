@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import IconButton from "@material-ui/core/IconButton";
 import ExitToApp from "@material-ui/icons/ExitToApp";
 import Share from "@material-ui/icons/Share";
+import LibraryMusic from "@material-ui/icons/LibraryMusic";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import ThemeCheckbox from "./ThemeCheckbox";
@@ -12,6 +13,7 @@ import { SettingsPropType } from "../morpheus/store/models";
 const MenuRoom = ({
   onExitRoom,
   onShare,
+  onOpenLofi,
   onChangeSettings,
   onChangeTheme,
   settings
@@ -24,6 +26,16 @@ const MenuRoom = ({
         onChangeSettings("notificationDisabled", event.target.checked);
       }}
     />
+    <Tooltip title="Turn on Lo-fi">
+      <IconButton
+        aria-label="Turn on Lo-fi"
+        aria-controls="menu-appbar"
+        onClick={onOpenLofi}
+        color="inherit"
+      >
+        <LibraryMusic />
+      </IconButton>
+    </Tooltip>
     <Tooltip title="Share room link">
       <IconButton
         aria-label="Share room link"
@@ -50,6 +62,7 @@ const MenuRoom = ({
 MenuRoom.propTypes = {
   onExitRoom: PropTypes.func.isRequired,
   onShare: PropTypes.func.isRequired,
+  onOpenLofi: PropTypes.func.isRequired,
   onChangeSettings: PropTypes.func.isRequired,
   onChangeTheme: PropTypes.func.isRequired,
   settings: SettingsPropType.isRequired
