@@ -6,6 +6,7 @@ import AppBarTitle from "../../components/AppBarTitle";
 import MenuRoom from "../../components/MenuRoom";
 import ShareModal from "../../components/ShareModal";
 import LofiPopper from "../../components/LofiPopper";
+import PictureInPicture from "../../components/PictureInPicture";
 import { selectRooms, selectSystemSettings } from "../store/selectors";
 import { emitLeftMeeting } from "../socket";
 import { changeSystemSetting, toggleTheme } from "../store/actions";
@@ -43,6 +44,7 @@ const RoomAppBar = ({
         onChangeTheme={onChangeTheme}
         settings={settings}
       />
+      <PictureInPicture />
       <LofiPopper
         open={isLofiOn}
         onClose={() => {
